@@ -14,6 +14,8 @@ class Data:
 
         cls.success.clear()
         for v in worksheet.iter_rows(values_only=True):
+            if all(cell is None for cell in v):     # 在新增银行卡那里总是多读3个空行
+                break
             Data.success.append(v)
 
 
